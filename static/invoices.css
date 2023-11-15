@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Poppins:wght@300&display=swap');
+
+
+body {
+    margin: 0;
+    display: flex;
+    background-color: #131313
+}
+
+/* Menu block */
+
+#menu a {
+    text-decoration: none;
+    color: #FDFDFD
+}
+
+#menu div {
+    border: 0px solid blue;
+    width: 220px;
+}
+
+#menu {
+    width: 300px;
+    height: 100vh;
+    border: 0px solid red;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+#logo_container {
+    width: 220px;
+    height: 60px;
+    font-family: 'DM Sans', sans-serif;
+    color: #FDFDFD;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.menu-item {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    padding-right: 10px;
+}
+
+#warehouse {
+    margin-top: 40px;
+    display: flex;
+    padding-left: 30px;
+    transition: padding-left 0.4s ease;
+}
+
+#accounting, #receipt, #invoices, #analysis {
+    margin-top: 17px;
+    display: flex;
+    padding-left: 30px;
+    transition: padding-left 0.4s ease;
+}
+
+#profile {
+    padding-left: 30px;
+    margin-top: 245px;
+    transition: padding-left 0.4s ease;
+}
+#logout {
+    padding-left: 30px;
+    margin-top: 16px;
+    transition: padding-left 0.4s ease;
+}
+
+#warehouse:hover, #accounting:hover, #receipt:hover, #invoices:hover, #analysis:hover, #profile:hover, #logout:hover {
+    padding-left: 40px;
+}
+
+/* Main block */
+
+#main {
+    padding-top: 40px;
+}
+
+.select_label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 21px;
+    color: #fdfdfd;
+}
+
+#receipt_date {
+    height: 33px;
+    border-radius: 24px;
+    border: 0;
+    padding: 0 10px 0 10px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    background-color: #3F3E3E;
+    color: #fdfdfd;
+    margin-left: 20px;
+}
+
+.submit_button {
+    height: 33px;
+    width: 60px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #009900;
+    font-family: 'Poppins', sans-serif;
+    color: #FFF;
+    margin-left: 20px;
+    outline: none;
+}
+
+.submit_button:hover {
+    box-shadow: 0 0 6px #009900;
+}
+
+table {
+    margin-top: 60px;
+}
+
+th {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    color: #fdfdfd;
+    padding-bottom: 20px;
+}
+
+td {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #fdfdfd;
+}

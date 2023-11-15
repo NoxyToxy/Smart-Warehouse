@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dashboard.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="menu">
+        <div id="logo_container"><a href="/">HomeBuild</a></div>
+
+            <div id="warehouse"><a class="menu-item" href="/warehouse"><img class="menu-icon" src="{{ url_for('static', filename='icons/warehouse.png') }}" alt="">Склад</a></div>
+            <div id="accounting"><a class="menu-item" href="/accounting"><img class="menu-icon" src="{{ url_for('static', filename='icons/accounting.png') }}" alt="">Учёт</a></div>
+            <div id="receipt"><a class="menu-item" href="/receipt"><img class="menu-icon" src="{{ url_for('static', filename='icons/receipt.png') }}" alt="">Получение</a></div>
+            <div id="invoices"><a class="menu-item" href="/invoices"><img class="menu-icon" src="{{ url_for('static', filename='icons/invoices.png') }}" alt="">Накладные</a></div>
+            <div id="analysis"><a class="menu-item" href="/analysis"><img class="menu-icon" src="{{ url_for('static', filename='icons/analysis.png') }}" alt="">Аналитика</a></div>
+            <div id="profile"><a class="menu-item" href="/account"><img class="menu-icon" src="{{ url_for('static', filename='icons/profile.png') }}" alt="">Профиль</a></div>
+            <div id="logout"><a class="menu-item" href="/logout"><img class="menu-icon" src="{{ url_for('static', filename='icons/logout.png') }}" alt="">Выход</a></div>
+    </div>
+    <div id="main">
+        <a href="/account"><div class="tiles" id="profile_tile">
+            <p class="tileName">{{ fullname }}</p>
+            <p class="tileInfo profile-info">{{ age }} years, {{ specialization }}</p>
+        </div></a>
+        <a href="/accounting"><div class="tiles" id="issuance_tile">
+            <p class="tileName">Учёт</p>
+            <p class="tileInfo">Перейти к учёту  ></p>
+        </div></a>
+        <a href="/receipt"><div class="tiles" id="receipt_tile">
+            <p class="tileName">Получение</p>
+            <p class="tileInfo">Перейти к получению  ></p>
+        </div></a>
+        <div class="tiles" id="analysis_tile">
+            <p class="tileName">Аналитика</p>
+            <div id="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>
+            <script>
+              // Получение данных из MongoDB
+              var result = {{ result|tojson }};
+
+              // Преобразование данных в формат, который может быть использован для создания графика
+              var dates = Object.keys(result);
+              var values = Object.values(result);
+              var data = {
+                labels: dates,
+                datasets: [{
+                  label: 'Material consumption',
+                  data: values,
+                  borderColor: 'rgb(71,255,89)',
+                  fill: false
+                }]
+              };
+
+              // Создание графика с помощью Chart.js
+              var ctx = document.getElementById('myChart').getContext('2d');
+              var myChart = new Chart(ctx, {
+                type: 'line',
+                data: data,
+                options: {
+                  scales: {
+                    xAxes: [{
+                      type: 'time',
+                      time: {
+                        unit: 'day'
+                      }
+                    }],
+                    yAxes: [{
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    }]
+                  }
+                }
+              });
+            </script>
+        </div>
+        <div class="tiles" id="warehouse_tile">
+            <p class="tileName">Склад</p>
+            {% for material in materials %}
+                <p class="materials tileInfo">{{ material['name'] }}  ||  {{ material['amount'] }} pcs</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

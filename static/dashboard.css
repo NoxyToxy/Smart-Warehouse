@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Poppins:wght@300&display=swap');
+
+body {
+    margin: 0;
+    display: flex;
+    background-color: #131313
+}
+
+/* Menu block */
+
+#menu a {
+    text-decoration: none;
+    color: #FDFDFD
+}
+
+#menu div {
+    border: 0px solid blue;
+    width: 220px;
+}
+
+#menu {
+    width: 300px;
+    height: 100vh;
+    border: 0px solid red;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+#logo_container {
+    width: 220px;
+    height: 60px;
+    font-family: 'DM Sans', sans-serif;
+    color: #FDFDFD;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.menu-item {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    padding-right: 10px;
+}
+
+#warehouse {
+    margin-top: 40px;
+    display: flex;
+    padding-left: 30px;
+    transition: padding-left 0.4s ease;
+}
+
+#accounting, #receipt, #invoices, #analysis {
+    margin-top: 17px;
+    display: flex;
+    padding-left: 30px;
+    transition: padding-left 0.4s ease;
+}
+
+#profile {
+    padding-left: 30px;
+    margin-top: 245px;
+    transition: padding-left 0.4s ease;
+}
+#logout {
+    padding-left: 30px;
+    margin-top: 16px;
+    transition: padding-left 0.4s ease;
+}
+
+#warehouse:hover, #accounting:hover, #receipt:hover, #invoices:hover, #analysis:hover, #profile:hover, #logout:hover {
+    padding-left: 40px;
+}
+
+/* Main block */
+
+#main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 20px;
+    border: 0px solid red;
+    box-sizing: border-box;
+    padding-top: 30px;
+    padding-left: 50px;
+}
+
+#main a {
+    text-decoration: none;
+}
+
+.tiles {
+    background-color: #252525;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+#profile_tile, #issuance_tile, #receipt_tile {
+    grid-row: 1;
+    grid-column: span 1;
+    width: 340px;
+    height: 200px;
+    padding-top: 1px;
+}
+
+#analysis_tile {
+    grid-row: 2 / span 2;
+    grid-column: span 2;
+    width: 700px;
+    height: 400px;
+}
+
+#warehouse_tile {
+    grid-row: 2 / span 2; /* Set to span 2 rows */
+    grid-column: span 1;
+    width: 340px;
+    height: 400px;
+}
+
+.tileName {
+    font-family: 'DM Sans', sans-serif;
+    color: #FDFDFD;
+    font-size: 35px;
+    padding-left: 30px;
+    font-weight: bold;
+    padding-bottom: -20px;
+}
+
+.tileInfo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: #FDFDFD;
+    padding-left: 30px;
+}
+
+#chart-container {
+    width: 600px;
+    position: relative;
+    bottom: 40px;
+    left: 26px;
+}
+
+.materials {
+    font-size: 17px;
+    margin-right: 25px;
+}
+
